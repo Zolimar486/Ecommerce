@@ -20,8 +20,8 @@ export default function Products({cat,filter,sort}){
   useEffect (() => {   /////// when its changed the cat, its going to fire the useEffect function, just fetching products from our api
     const getProducts= async() => {
       try{
-        const res = await axios.get(cat ?`http://localhost:5000/api/products?category=${cat}` :
-        'http://localhost:5000/api/products');
+        const res = await axios.get(cat ?`https://ecommerce-qmhd.onrender.com/api/products?category=${cat}` :
+        'https://ecommerce-qmhd.onrender.com/api/products');
        
         setProducts(res.data);
 
