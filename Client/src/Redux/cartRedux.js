@@ -14,10 +14,16 @@ const cartSlice = createSlice({
             state.total +=  action.payload.price *action.payload.quantity  /// the calculation of the quantity of the shopping cart
 
 
+        },
+
+        clearCart: (state) => {
+            state.quantity = 0;
+            state.products=[];
+            state.total= 0;
         }
     }
 })
 
-export const {addProduct} = cartSlice.actions
+export const {addProduct, clearCart } = cartSlice.actions
 
 export default cartSlice.reducer; // we export default the cartSlice like this, since its going to be used in Store

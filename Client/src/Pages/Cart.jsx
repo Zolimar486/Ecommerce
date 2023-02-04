@@ -3,12 +3,12 @@ import Announcement from '../Components/Announcement';
 import Footer from '../Components/Footer';
 import Navbar from '../Components/Navbar';
 import { mobile } from '../Responsive';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import {useState, useEffect} from 'react'
 import {userRequest} from '../requestMethod';
 import {useHistory} from 'react-router-dom'
-
+import {clearCart} from '../Redux/cartRedux'
 
 const Container = styled.div``
 
@@ -182,16 +182,31 @@ cursor:pointer;
 font-weight:600;
 `
 
+const Button1 = styled.button`
+margin-top:10px;
+width:100%;
+padding:10px;
+background-color:black;
+color:white;
+cursor:pointer;
+font-weight:600;
+`
+
 const KEY =process.env.REACT_APP_STRIPE;
 
 export default function Cart(){
     const cart = useSelector(state => state.cart) // fetch data from our redux state, for using our product in our cart
     const [stripeToken, setStripeToken] = useState(null)
     const history = useHistory()
+    const dispatch= useDispatch()
       
     const onToken = (token)=> {
         setStripeToken(token)
 
+    }
+
+    const handleClick= ()=> {
+        dispatch(clearCart())
     }
     
     useEffect(()=> {
@@ -299,11 +314,11 @@ export default function Cart(){
 
 
                         <Button>CHECK OUT</Button>
-                        </StripeCheckout>
-
-                        
-                        
+                        </StripeCheckout>   
+                        <Button1 onClick= {() => handleClick()}>Clear Cart</Button1>
                     </Summary>
+
+                  
                 </Bottom>
             </Wrapper>
             <Footer/>

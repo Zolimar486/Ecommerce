@@ -116,7 +116,7 @@ export default function Navbar(){
                   </SearchContainer>
                 </Left>
                 <Center>
-                  <Logo>ZOLI.C</Logo>
+                  <Logo>SHOP</Logo>
                 </Center>
                 
                 <Right>
@@ -136,20 +136,25 @@ export default function Navbar(){
                     )
                  :(
                   <List>
-                <Link  to="/register" style ={{textDecoration:"none"}}>
+                <Link  to="/register" style ={{textDecoration:"none", color:"black"}}>
                   <ListItems>SIGN UP</ListItems>
                   </Link>
-                  <Link to="login">
+                  <Link to="login"  style ={{textDecoration:"none", color:"black"}}>
                   <ListItems> SIGN IN </ListItems>
                   </Link>
                   </List>
                   )}
                   <Link to="/cart">
                   <MenuItems>
-                  <Badge badgeContent={quantity} color="primary">
+                  {currentUser ? (<Badge badgeContent={quantity} color="primary">
                     <ShoppingCartOutlined/>
 
-                  </Badge>
+                  </Badge>)
+                   : (<Badge badgeContent="0" color="primary">
+                   <ShoppingCartOutlined/>
+
+                  </Badge>)}
+                  
                   </MenuItems>
                   </Link>
                 </Right>

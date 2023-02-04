@@ -72,7 +72,7 @@ export default function Success(){
         <Box>
         {orderId
           ? `Order has been created successfully. Your order number is ${orderId}`
-          : `Successfull. Your order is being prepared...`}
+          : `Successfully. Your order is being prepared...`}
        <Link to="/"> <button style={{ padding: 10, marginTop: 20, cursor:"pointer", fontSize:"15px", width:"100%" }}>Go to Homepage</button></Link>
         </Box>
       </Div>
