@@ -152,7 +152,7 @@ flex:1;
 border:0.5px solid lightgray;
 border-radius:10px;
 padding:20px;
-height:50vh;
+height:60vh;
 
 `
 

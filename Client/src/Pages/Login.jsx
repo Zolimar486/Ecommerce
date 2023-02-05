@@ -4,6 +4,7 @@ import {useState} from 'react'
 import { login } from '../Redux/apiCalls'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const Container = styled.div`
  width:100vw;
@@ -54,7 +55,7 @@ const Error = styled.span`
 color: red;
 `
 
-const Link= styled.a`
+const Link1 = styled.a`
 margin:5px  0px;
 font-size:12px;
 text-decoration:underline;
@@ -101,8 +102,10 @@ export default function Login(){
                     
                     <Button onClick={ handleClick} disabled ={isFetching} >LOGIN</Button>
                     { error && <Error>Something went wrong </Error>}
-                    <Link>DO NOT YOU REMEMBER YOUR PASSWORD</Link>
-                    <Link>CREATE A NEW ACCOUNT</Link>
+                    <Link1>DO NOT YOU REMEMBER YOUR PASSWORD</Link1>
+                    <Link to='/register' style={{textDecoration:"none", color:"black"}}>
+                    <Link1>CREATE A NEW ACCOUNT</Link1>
+                    </Link>
                 </Form>
             </Wrapper>
         </Container>
