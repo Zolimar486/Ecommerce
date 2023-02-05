@@ -21,6 +21,18 @@ function App() {
             <Home/>
 
           </Route>
+          
+          <Route path="/login">
+          {user ?  <Home/> :<Login/>}
+         
+          </Route>
+
+          <Route path="/register" >
+            {user ? <Home/> : <Register/>}
+            
+          </Route>
+
+
           <Route path="/products/:category">
             <ProductList/>
 
@@ -37,16 +49,7 @@ function App() {
 
           </Route>
 
-          <Route path="/login">
-          {user ?  <Redirect to="/" /> :<Login/>}
-         
-          </Route>
-
-          <Route path="/register" >
-            {user ? <Home/> : <Register/>}
-            
-          </Route>
-
+          
         </Switch>
        </Router>
         
