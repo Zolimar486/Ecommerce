@@ -7,10 +7,18 @@ import axios from 'axios';
 
 
 const Container = styled.div`
- display:flex;
- padding:20px;
- flex-wrap:wrap;
- justify-content:space-between;
+margin:10px auto;
+max-width:400px;
+
+
+@media only screen and (min-width:768px){
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+
+  margin:0px;
+  max-width:100%;
+}
 `
 
 export default function Products({cat,filter,sort}){
